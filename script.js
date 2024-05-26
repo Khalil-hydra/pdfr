@@ -262,6 +262,6 @@ async function modifyonePdf() {
   const inputText5 = document.getElementById('input1Text5').value;
 
   // Trigger the browser to download the PDF document using FileSaver.js
-  const blob = new Blob([pdfBytes], { type: "application1/pdf" });
+  const blob = new Blob([pdfBytes], { type: "application/pdf" });
   saveAs(blob, inputText5);
 }

@@ -62,6 +62,7 @@
           <div class="col-12">
             <div class="drop-zone" id="dropZone">Drag & Drop PDF Here or Click to Upload</div>
             <input type="file" id="fileInput" class="d-none" accept="application/pdf">
+            <input type="text" class="form-control mt-2" id="fileNameDisplay1" placeholder="No file chosen" readonly>
             <button type="button" onclick="modifyPdf()" class="btn btn-primary btn-block btn-lg mt-3">Speichern</button>
           </div>
         </div>
@@ -103,7 +104,8 @@
         <div class="row mt-3">
           <div class="col-12">
             <div class="drop-zone" id="drop1Zone">Drag & Drop PDF Here or Click to Upload</div>
-            <input type="file" id="file1Input" class="d-none" accept="application/pdf">
+            <input type="file" id="file1Input" class="d-none" accept="application1/pdf">
+            <input type="text" class="form-control mt-2" id="fileNameDisplay2" placeholder="No file chosen" readonly>
             <button type="button" onclick="modifyonePdf()" class="btn btn-primary btn-block btn-lg mt-3">Speichern</button>
           </div>
         </div>
@@ -114,8 +116,8 @@
 
   <nav class="navbar bottom-navbar">
     <div class="container">
-      <button type="button" class="btn btn-sucess mr-2" onclick="showMainContainer()">dossier</button>
-      <button type="button" class="btn btn-sucess" onclick="showSecondaryContainer()">anschreiben</button>
+      <button type="button" class="btn btn-info mr-2" onclick="showMainContainer()">dossier</button>
+      <button type="button" class="btn btn-warning" onclick="showSecondaryContainer()">anschreiben</button>
     </div>
   </nav>
 

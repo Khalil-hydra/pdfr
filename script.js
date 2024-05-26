@@ -42,6 +42,10 @@ document.getElementById('dropZone').addEventListener('drop', (event) => {
 document.getElementById('dropZone').addEventListener('click', () => {
   document.getElementById('fileInput').click();
 });
+document.getElementById('fileInput').addEventListener('change', function() {
+  var fileName = this.files[0].name;
+  document.getElementById('fileNameDisplay1').value = fileName;
+});
 
 // ********************************************************************************
 // ********************************************************************************
@@ -74,6 +78,13 @@ document.getElementById('drop1Zone').addEventListener('drop', (event) => {
 document.getElementById('drop1Zone').addEventListener('click', () => {
   document.getElementById('file1Input').click();
 });
+document.getElementById('file1Input').addEventListener('change', function() {
+  var fileName = this.files[0].name;
+  document.getElementById('fileNameDisplay2').value = fileName;
+});
+// ********************************************************************************
+// ********************************************************************************
+// ********************************************************************************
 
 function readPdfFile(file) {
   const reader = new FileReader();
@@ -113,52 +124,53 @@ async function modifyPdf() {
     return;
   }
 
-  const firstPage = pages[2];
+  const firstPage = pages[3];
 
   // Get the width and height of the first page
   const { width, height } = firstPage.getSize();
 
-  // Draw the texts
-  firstPage.drawText(inputText, {
-    x: 32,
-    y: height / 2 + 365,
-    size: 12.5,
+   // Draw the texts
+   firstPage.drawText(inputText, {
+    x: 75,
+    y: height / 2 + 338,
+    size: 11.5,
     font: helveticaFontb,
     color: rgb(0, 0, 0),
     rotate: degrees(0),
   });
   firstPage.drawText(inputText1, {
-    x: 32,
-    y: height / 2 + 350,
-    size: 11,
+    x: 75,
+    y: height / 2 + 320,
+    size: 10,
     font: helveticaFont,
     color: rgb(0, 0, 0),
     rotate: degrees(0),
   });
   firstPage.drawText(inputText2, {
-    x: 32,
-    y: height / 2 + 338,
-    size: 11,
+    x: 75,
+    y: height / 2 + 304,
+    size: 10,
     font: helveticaFont,
     color: rgb(0, 0, 0),
     rotate: degrees(0),
   });
   firstPage.drawText(inputText3, {
-    x: 32,
+    x: 75.2,
     y: height / 2 + 275,
-    size: 11,
+    size: 10,
     font: helveticaFontb,
     color: rgb(0, 0, 0),
     rotate: degrees(0),
   });
   firstPage.drawText(inputText4, {
-    x: 32,
-    y: height / 2 + 245,
-    size: 12,
+    x: 70,
+    y: height / 2 + 235,
+    size: 10,
     font: helveticaFont,
     color: rgb(0, 0, 0),
     rotate: degrees(0),
   });
+
 
   // Serialize the PDFDocument to bytes (a Uint8Array)
   const pdfBytes = await pdfDoc.save();
@@ -205,41 +217,41 @@ async function modifyonePdf() {
 
   // Draw the texts
   firstPage.drawText(inputText, {
-    x: 32,
-    y: height / 2 + 365,
-    size: 12.5,
+    x: 75,
+    y: height / 2 + 338,
+    size: 11.5,
     font: helveticaFontb,
     color: rgb(0, 0, 0),
     rotate: degrees(0),
   });
   firstPage.drawText(inputText1, {
-    x: 32,
-    y: height / 2 + 350,
-    size: 11,
+    x: 75,
+    y: height / 2 + 320,
+    size: 10,
     font: helveticaFont,
     color: rgb(0, 0, 0),
     rotate: degrees(0),
   });
   firstPage.drawText(inputText2, {
-    x: 32,
-    y: height / 2 + 338,
-    size: 11,
+    x: 75,
+    y: height / 2 + 304,
+    size: 10,
     font: helveticaFont,
     color: rgb(0, 0, 0),
     rotate: degrees(0),
   });
   firstPage.drawText(inputText3, {
-    x: 32,
+    x: 75.2,
     y: height / 2 + 275,
-    size: 13,
+    size: 10,
     font: helveticaFontb,
     color: rgb(0, 0, 0),
     rotate: degrees(0),
   });
   firstPage.drawText(inputText4, {
-    x: 32,
-    y: height / 2 + 245,
-    size: 12,
+    x: 70,
+    y: height / 2 + 235,
+    size: 10,
     font: helveticaFont,
     color: rgb(0, 0, 0),
     rotate: degrees(0),
@@ -247,9 +259,9 @@ async function modifyonePdf() {
 
   // Serialize the PDFDocument to bytes (a Uint8Array)
   const pdfBytes = await pdfDoc.save();
-  const inputText5 = document.getElementById('inputText5').value;
+  const inputText5 = document.getElementById('input1Text5').value;
 
   // Trigger the browser to download the PDF document using FileSaver.js
-  const blob = new Blob([pdfBytes], { type: "application/pdf" });
+  const blob = new Blob([pdfBytes], { type: "application1/pdf" });
   saveAs(blob, inputText5);
 }
